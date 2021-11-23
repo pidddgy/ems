@@ -47,7 +47,6 @@ public class MainJFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,28 +71,16 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("jButton4");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clicked_jButton4(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton1)
-                            .addComponent(jButton3)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jButton4)))
+                    .addComponent(jButton2)
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
                 .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -105,9 +92,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addGap(28, 28, 28)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(36, 36, 36))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         pack();
@@ -152,13 +137,6 @@ public class MainJFrame extends javax.swing.JFrame {
         theANEJFrame.setMainHT(refVal);
     }//GEN-LAST:event_pressed_jButton3
 
-    private void clicked_jButton4(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clicked_jButton4
-        // TODO add your handling code here:
-        AnotherSeparateJFrame theAnotherSeparateJFrame = new AnotherSeparateJFrame();
-        theAnotherSeparateJFrame.setVisible(true);
-        System.out.println(theAnotherSeparateJFrame);
-    }//GEN-LAST:event_clicked_jButton4
-
     
     
     /**
@@ -201,6 +179,5 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     // End of variables declaration//GEN-END:variables
 }

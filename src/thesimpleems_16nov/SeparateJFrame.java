@@ -87,10 +87,10 @@ public class SeparateJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(368, Short.MAX_VALUE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +115,9 @@ public class SeparateJFrame extends javax.swing.JFrame {
         model = new DefaultTableModel(new Object[] {"Status",
                                                     "Emp Num",
                                                     "First Name",
-                                                    "Last Name"},
+                                                    "Last Name",
+                                                    "Gender",
+                                                     "Work Location"},
                                                     numInHT);
         jTable1.setModel(model);
         jTable1.setAutoCreateColumnsFromModel(true);
@@ -138,29 +140,12 @@ public class SeparateJFrame extends javax.swing.JFrame {
                     System.out.println("  Employee number " + Integer.toString(theEmp.getEmpNum()));
                     System.out.println("  First name, last name : " + theEmp.getFirstName() + " " + theEmp.getLastName());
 
-                    if (theEmp instanceof FTE) {
-                        FTE theFTE = (FTE) theEmp;
-                        System.out.println("    That employee has gross yearly salary $" + Double.toString(theFTE.getYearlySalary()));
-                        System.out.println("    That employee has net yearly income $" + Double.toString(theFTE.calcAnnualNetIncome()));
-                        
-                        model.setValueAt("Full Time", empCounter, 0);
-                        model.setValueAt(theEmp.getEmpNum(), empCounter, 1);
-                        model.setValueAt(theEmp.getFirstName(), empCounter, 2);
-                        model.setValueAt(theEmp.getLastName(), empCounter, 3);
-                    }
-                    
-                    if (theEmp instanceof PTE) {
-                        PTE thePTE = (PTE) theEmp;
-                        System.out.println("    That employee has hourly wage $" + Double.toString(thePTE.hourlyWage));
-                        System.out.println("    That employee has hours per week " + Double.toString(thePTE.hoursPerWeek));
-                        System.out.println("    That employee has weeks per year " + Double.toString(thePTE.weeksPerYear));
-                        
-                        model.setValueAt("Part Time", empCounter, 0);
-                        model.setValueAt(theEmp.getEmpNum(), empCounter, 1);
-                        model.setValueAt(theEmp.getFirstName(), empCounter, 2);
-                        model.setValueAt(theEmp.getLastName(), empCounter, 3);
-
-                   }
+                    model.setValueAt((theEmp instanceof FTE)?"Full time":"Part time", empCounter, 0);
+                    model.setValueAt(theEmp.getEmpNum(), empCounter, 1);
+                    model.setValueAt(theEmp.getFirstName(), empCounter, 2);
+                    model.setValueAt(theEmp.getLastName(), empCounter, 3);
+                    model.setValueAt(theEmp.getGender()==1?"Male":"Female", empCounter, 4);
+                    model.setValueAt(theEmp.getWorkLocation(), empCounter, 5);
                 }
             
             }           

@@ -287,15 +287,16 @@ public class AddNewEmployeeJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8)
+                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
@@ -331,20 +332,43 @@ public class AddNewEmployeeJFrame extends javax.swing.JFrame {
     private void addTheNewEmployee(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTheNewEmployee
         // TODO add your handling code here:
 //        
-//        int theEmpNum = Integer.parseInt(jTextField1.getText());
-//        String theFirstName = jTextField2.getText();
-////        String theLastName = jTextField3.getText();
-////        boolean isFullTime = jCheckBox1.isSelected();
+        int theEmpNum = Integer.parseInt(jTextField1.getText());
+        String theFirstName = jTextField2.getText();
+        String theLastName = jTextField5.getText();
+        String theWorkLocation = jTextField6.getText();
+        boolean gender = jRadioButton2.isSelected();
+        boolean isFullTime = jRadioButton4.isSelected();
+          
+        int theSalary;
+        double deductionRate;
+        
+        int hourlyWage, hoursPerWeek, weeksPerYear;
+        if(isFullTime) {
+            theSalary = Integer.parseInt(jTextField10.getText());
+            deductionRate = Double.parseDouble(jTextField7.getText());
+            
+            FTE theFTE = new FTE(theEmpNum, theFirstName, theLastName,
+                        gender?1:0, theWorkLocation, deductionRate, theSalary);
+           
+            mainHT.addEmployee(theFTE);
+        } else {
+            hourlyWage = Integer.parseInt(jTextField8.getText());
+            hoursPerWeek = Integer.parseInt(jTextField4.getText());
+            weeksPerYear = Integer.parseInt(jTextField9.getText());
+            deductionRate = Double.parseDouble(jTextField7.getText());
+
+            PTE thePTE = new PTE(theEmpNum, theFirstName, theLastName, 
+                         gender?1:0, theWorkLocation, deductionRate, hourlyWage, hoursPerWeek, weeksPerYear);
+            mainHT.addEmployee(thePTE);
+        }
+   
+       
+        
+        
 //        
-//        
-//        FTE theFTE = new FTE(theEmpNum, theFirstName, theLastName,
-//                        0, 0, 0.25, 80000.00);
-//        
-//        mainHT.addEmployee(theFTE);
-//        
-//        jLabel4.setText("Added new employee:  " + jTextField1.getText() + " "
-//                        + theFirstName + " " + theLastName);       
-//        jLabel4.setVisible(true);
+        jLabel4.setText("Added new employee:  " + jTextField1.getText() + " "
+                        + theFirstName + " " + theLastName);       
+        jLabel4.setVisible(true);
 //        
 //        jTextField1.setText("");
 //        jTextField2.setText("");
@@ -389,9 +413,9 @@ public class AddNewEmployeeJFrame extends javax.swing.JFrame {
         jTextField9.setVisible(true);
         
         jLabel6.setVisible(false);
-        jLabel12.setVisible(false);
+//        jLabel12.setVisible(false);
 
-        jTextField7.setVisible(false);
+//        jTextField7.setVisible(false);
         jTextField10.setVisible(false);
     }//GEN-LAST:event_jRadioButton5ActionPerformed
 
@@ -426,9 +450,9 @@ public class AddNewEmployeeJFrame extends javax.swing.JFrame {
         jTextField9.setVisible(false);
         
         jLabel6.setVisible(true);
-        jLabel12.setVisible(true);
+//        jLabel12.setVisible(true);
 
-        jTextField7.setVisible(true);
+//        jTextField7.setVisible(true);
         jTextField10.setVisible(true);
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 

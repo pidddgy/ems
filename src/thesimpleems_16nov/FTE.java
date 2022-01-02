@@ -17,7 +17,8 @@ public class FTE extends EmployeeInfo {
     /**
      *
      */
-    private double yearlySalary;
+    public double yearlySalary;
+    public double deductionRate;
     
     /**
      *
@@ -32,12 +33,16 @@ public class FTE extends EmployeeInfo {
     public FTE(int eN, String fN, String lN, int g, String wL, double dR, double yS) {
         super(eN, fN, lN, g, wL, dR);
         yearlySalary = yS;
-        
+        deductionRate = dR;
     }
     
     
     public double getYearlySalary() {
         return yearlySalary;
+    }
+    
+    public double getDeductionRate() {
+        return deductionRate;
     }
     
     

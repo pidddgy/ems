@@ -46,4 +46,23 @@ public class EmployeeInfo {
         return workLoc;
     }
     
+    public double getYearlySalary() {
+        return -1; // override in child class
+    } 
+    
+    public double getDeductionRate() {
+        return -1; // override in child class
+    } 
+    
+    public double getHourlyWage() {
+        return -1;
+    }
+    
+    public double getHoursPerWeek() {
+        return -1;
+    }
+    
+    public double getWeeksPerYear() {
+        return -1;
+    }
 }

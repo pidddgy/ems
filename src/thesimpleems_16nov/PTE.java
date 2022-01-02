@@ -25,7 +25,18 @@ public class PTE extends EmployeeInfo {
         hourlyWage = hW;
         hoursPerWeek = hPW;
         weeksPerYear = wPY;
-        
+    }
+    
+    public double getHourlyWage() {
+        return hourlyWage;
+    }
+    
+    public double getHoursPerWeek() {
+        return hoursPerWeek;
+    }
+    
+    public double getWeeksPerYear() {
+        return weeksPerYear;
     }
     
 }

@@ -81,6 +81,13 @@ public class MyHashTable {
 		
 	} // end searchByEmployeeNumber
 	
+        public void removeEmployee(int employeeNum) {
+            int bucket = calcBucket(employeeNum);
+            int idx = searchByEmployeeNumber(employeeNum);
+            if(idx == -1) return;
+            
+            buckets[bucket].remove(idx);
+        }
 	
 	
 	public void displayContents() {

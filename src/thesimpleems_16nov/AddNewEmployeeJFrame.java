@@ -339,12 +339,12 @@ public class AddNewEmployeeJFrame extends javax.swing.JFrame {
         boolean gender = jRadioButton2.isSelected();
         boolean isFullTime = jRadioButton4.isSelected();
           
-        int theSalary;
+        double theSalary;
         double deductionRate;
         
         int hourlyWage, hoursPerWeek, weeksPerYear;
         if(isFullTime) {
-            theSalary = Integer.parseInt(jTextField10.getText());
+            theSalary = Double.parseDouble(jTextField10.getText());
             deductionRate = Double.parseDouble(jTextField7.getText());
             
             FTE theFTE = new FTE(theEmpNum, theFirstName, theLastName,

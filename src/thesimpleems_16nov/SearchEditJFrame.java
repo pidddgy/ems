@@ -429,18 +429,20 @@ public class SearchEditJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         //
         int theEmpNum = Integer.parseInt(jTextField1.getText());
+        mainHT.removeEmployee(theEmpNum);
+        
         String theFirstName = jTextField3.getText();
         String theLastName = jTextField5.getText();
         String theWorkLocation = jTextField6.getText();
         boolean gender = jRadioButton2.isSelected();
         boolean isFullTime = jRadioButton4.isSelected();
 
-        int theSalary;
+        double theSalary;
         double deductionRate;
 
         int hourlyWage, hoursPerWeek, weeksPerYear;
         if(isFullTime) {
-            theSalary = Integer.parseInt(jTextField10.getText());
+            theSalary = Double.parseDouble(jTextField10.getText());
             deductionRate = Double.parseDouble(jTextField7.getText());
 
             FTE theFTE = new FTE(theEmpNum, theFirstName, theLastName,
@@ -537,6 +539,12 @@ public class SearchEditJFrame extends javax.swing.JFrame {
 
     private void jButton4addTheNewEmployee(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4addTheNewEmployee
         // TODO add your handling code here:
+        jLabel4.setText("Deleted employee:  " + jTextField1.getText());
+        jLabel4.setVisible(true);
+        
+        int theEmp = Integer.parseInt(jTextField1.getText());
+        
+        mainHT.removeEmployee(theEmp);
     }//GEN-LAST:event_jButton4addTheNewEmployee
 
     /**

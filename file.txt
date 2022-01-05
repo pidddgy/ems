@@ -1,3 +1,2 @@
-FTE,111111,Elmer,Fudd,1,sdf,0.2,80000.0
-PTE,222222,Daffy,Duck,0,b,-1.0,0.22,10.0,20.0
-FTE,333333,Lola,Bunny,1,ree,0.17,90000.0
+FTE,12344,bob,bob,1,dsfsfsf,0.24,23.0
+FTE,123456,marcus,chong,1,sdfdsfdsf,123.0,123.0

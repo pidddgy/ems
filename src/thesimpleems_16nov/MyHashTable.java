@@ -85,7 +85,7 @@ public class MyHashTable {
             int bucket = calcBucket(employeeNum);
             int idx = searchByEmployeeNumber(employeeNum);
             if(idx == -1) return;
-            
+            numInHashTable--;
             buckets[bucket].remove(idx);
         }
 	

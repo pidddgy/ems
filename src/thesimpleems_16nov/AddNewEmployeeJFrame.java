@@ -333,6 +333,11 @@ public class AddNewEmployeeJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        
         int theEmpNum = Integer.parseInt(jTextField1.getText());
+        if(mainHT.searchByEmployeeNumber(theEmpNum) != -1) {
+            jLabel4.setText("An employee with that number is already in the database! ");
+            jLabel4.setVisible(true);
+            return;
+        }
         String theFirstName = jTextField2.getText();
         String theLastName = jTextField5.getText();
         String theWorkLocation = jTextField6.getText();

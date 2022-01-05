@@ -361,14 +361,19 @@ public class SearchEditJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println(jTextField1.getText());
         String textVal = jTextField1.getText();
+        jLabel4.setText("");
         // https://stackoverflow.com/a/15801999 check if integer
-        if(textVal.matches("-?\\d+")) {
+        if(textVal.matches("-?\\d+") && textVal.length() > 0) {
             int id = Integer.parseInt(textVal);
             int bucket = mainHT.calcBucket(id);
             System.out.println(id);
             System.out.println(bucket);
             
             int idx = mainHT.searchByEmployeeNumber(id);
+            if(idx == -1) {
+                jLabel4.setText("Employee not in database! ");
+                return;
+            }
             EmployeeInfo emp = mainHT.buckets[bucket].get(idx);
             
             jTextField3.setText(emp.firstName);
@@ -403,6 +408,9 @@ public class SearchEditJFrame extends javax.swing.JFrame {
                 jTextField4.setText(emp.getHoursPerWeek()+"");
                 jTextField9.setText(emp.getWeeksPerYear()+"");
             }
+        } else {
+            jLabel4.setText("Not a valid employee number! ");
+            return;
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
